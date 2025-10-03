@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Education Website</title>
+  <style>
+    :root{--accent:#1e90ff;--max-width:1000px}
+    *{box-sizing:border-box}body{font-family:Arial,sans-serif;margin:0;color:#111;line-height:1.5}
+    header{background:var(--accent);color:#fff;padding:24px 16px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+    nav a{color:#fff;text-decoration:none;margin-right:12px;font-weight:600}
+    nav a:hover{text-decoration:underline}
+    h1,h2,h3{margin:0 0 12px 0}
+    .hero{padding:40px 0;text-align:center}
+    .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:24px}
+    .card{padding:16px;border-radius:12px;border:1px solid #eee;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.03)}
+    footer{padding:20px 0;color:#666;border-top:1px solid #eee;text-align:center;margin-top:40px}
+    form input, form textarea{padding:10px;width:100%;margin-bottom:8px;border-radius:8px;border:1px solid #ccc}
+    button{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
+    button:hover{opacity:0.9}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>My School / Institute</h1>
+      <nav>
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Welcome to Our Learning Center</h2>
+      <p>Providing quality education for everyone. Explore our courses and start learning today!</p>
+    </section>
+
+    <section id="courses">
+      <h2>Our Courses</h2>
+      <div class="courses">
+        <div class="card">
+          <h3>Mathematics</h3>
+          <p>Learn algebra, geometry, calculus, and more.</p>
+        </div>
+        <div class="card">
+          <h3>Science</h3>
+          <p>Physics, chemistry, biology – all explained simply.</p>
+        </div>
+        <div class="card">
+          <h3>English</h3>
+          <p>Improve reading, writing, and communication skills.</p>
+        </div>
+        <div class="card">
+          <h3>Computer Skills</h3>
+          <p>Basic to advanced computing and programming.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:40px">
+      <h2>About Us</h2>
+      <p>We are committed to providing the best educational experience for students of all ages. Our team of expert teachers ensures personalized learning and guidance.</p>
+    </section>
+
+    <section id="contact" style="margin-top:40px">
+      <h2>Contact Us</h2>
+      <p>Send us a message:</p>
+      <form onsubmit="handleSubmit(event)">
+        <input id="name" type="text" placeholder="Your Name" required />
+        <input id="email" type="email" placeholder="Your Email" required />
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p style="margin-top:8px;color:#666">Note: This form is local demo. To actually receive emails, integrate Formspree or Getform.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> My School / Institute | Made with ❤️ by Simple Code
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    function handleSubmit(e){
+      e.preventDefault();
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim();
+      const message=document.getElementById('message').value.trim();
+      if(!name||!email||!message){alert('Fill all fields');return}
+      alert('Thanks '+name+'! Message received (demo).');
+      document.getElementById('name').value='';
+      document.getElementById('email').value='';
+      document.getElementById('message').value='';
+    }
+  </script>
+</body>
+</html>
